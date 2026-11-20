@@ -1281,7 +1281,7 @@ function renderAlbum(i){
   $('aCount').textContent = al.photos.length + ' 张 · 没有文案';
   $('albumGrid').innerHTML = al.photos.map((p,k)=>`
     <figure data-i="${k}">
-      <div class="shot"><img src="${p.src}" alt="${al.title} ${pad(k+1)}" loading="lazy"><span class="a-time">${p.time}</span></div>
+      <div class="shot"><img src="${p.src}" alt="${al.title} ${pad(k+1)}" decoding="async"><span class="a-time">${p.time}</span></div>
       <figcaption>${pad(k+1)}　${p.cap}</figcaption>
     </figure>`).join('');
 }
