@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#080506">
-<title>青柑个人须知</title>
+<title>倦缥个人须知</title>
 <link rel="preconnect" href="https://miaoda.feishu.cn">
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@300;400;500;700;900&family=Noto+Sans+SC:wght@300;400;500&display=swap">
 <style>
@@ -156,7 +156,7 @@ input{font-family:inherit;color:inherit;background:none;border:none;outline:none
 .reveal.in{opacity:1;transform:none;}
 
 /* 顶栏 */
-.hero{padding:calc(env(safe-area-inset-top) + 30px) 26px 0;}
+.hero{padding:calc(env(safe-area-inset-top) + 58px) 26px 0;}
 .topline{
   display:flex;align-items:center;justify-content:space-between;
   font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;color:rgba(216,188,195,.6);
@@ -297,8 +297,8 @@ input{font-family:inherit;color:inherit;background:none;border:none;outline:none
 }
 
 /* 章节头 */
-.sec{padding:0 26px;margin-top:76px;position:relative;}
-.sec-head{margin-bottom:30px;}
+.sec{padding:0 26px;margin-top:104px;position:relative;}
+.sec-head{margin-bottom:36px;}
 .sec-head .num{
   display:block;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--amber);opacity:.8;
 }
@@ -925,7 +925,7 @@ input{font-family:inherit;color:inherit;background:none;border:none;outline:none
 
 <!-- ===== 开屏：饮下这杯 ===== -->
 <section class="intro" id="intro">
-  <span class="eyebrow">青柑 · 个人须知 / QINGGAN</span>
+  <span class="eyebrow">倦缥 · 个人须知 / QINGGAN</span>
 
   <div class="glass-wrap">
     <div class="glass-glow"></div>
@@ -982,7 +982,7 @@ input{font-family:inherit;color:inherit;background:none;border:none;outline:none
 <!-- ===== 入场弹窗 ===== -->
 <div class="gate" id="gate" aria-hidden="true">
   <div class="gate-card">
-    <div class="g-top"><span>NO.01 / 入场</span><span>青柑个人须知</span></div>
+    <div class="g-top"><span>NO.01 / 入场</span><span>倦缥个人须知</span></div>
     <h2>你开始对我<br><em>感兴<span class="heart">♡</span>趣</em>了么？</h2>
     <p class="g-sub">本店只问这一次。<br>答完，这杯就为你倒上。</p>
     <div class="g-actions">
@@ -1122,7 +1122,7 @@ input{font-family:inherit;color:inherit;background:none;border:none;outline:none
 
 <!-- 底部悬浮 -->
 <nav class="dock" id="dock">
-  <span class="l">青柑 · 个人须知</span>
+  <span class="l">倦缥 · 个人须知</span>
   <button id="dockBtn" type="button">调一杯 ↗</button>
 </nav>
 
@@ -1164,7 +1164,7 @@ input{font-family:inherit;color:inherit;background:none;border:none;outline:none
   <div class="sv-head"><span>结 单 图 片</span><button id="saveClose" type="button">关 闭</button></div>
   <img id="saveImg" alt="结单小票">
   <p>长按图片保存到相册</p>
-  <a id="saveDl" download="青柑-结单.png">下载这张图</a>
+  <a id="saveDl" download="倦缥-结单.png">下载这张图</a>
 </div>
 
 <div class="grain"></div>
@@ -2049,7 +2049,7 @@ async function saveReceiptImage(){
     $('saveImg').width = 720;
     $('saveImg').height = 0;
     $('saveDl').href = url;
-    $('saveDl').download = '青柑-结单-' + state.receipt.no + '.png';
+    $('saveDl').download = '倦缥-结单-' + state.receipt.no + '.png';
     $('saveView').classList.add('on');
     $('saveView').setAttribute('aria-hidden', 'false');
     toast('好了。长按图片就能存。');
