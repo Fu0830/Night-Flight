@@ -226,10 +226,11 @@ input{font-family:inherit;color:inherit;background:none;border:none;outline:none
   font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;color:rgba(149,116,124,.9);
 }
 .scroll-cue{
-  display:flex;align-items:center;gap:12px;margin-top:40px;
+  display:flex;flex-direction:column;align-items:center;gap:13px;margin-top:40px;
+  text-align:center;
   font-family:var(--sans);font-size:10px;letter-spacing:.24em;color:rgba(149,116,124,.7);
 }
-.scroll-cue i{display:block;width:1px;height:44px;background:linear-gradient(180deg,rgba(224,69,109,.7),transparent);}
+.scroll-cue i{display:block;width:1px;height:38px;background:linear-gradient(180deg,rgba(224,69,109,.7),transparent);}
 
 /* ==== 00 点歌台 ==== */
 .juke{margin-top:0;padding-top:calc(env(safe-area-inset-top) + 30px);}
@@ -1031,20 +1032,18 @@ input{font-family:inherit;color:inherit;background:none;border:none;outline:none
 
     <!-- 首页 -->
     <header class="hero">
-      <span class="eyebrow reveal">QINGGAN 青柑的酒吧</span>
-
       <div class="bio-text reveal">
-        <h1 class="bt-name">青柑</h1>
-        <p class="bt-sub">倦缥 · QINGGAN</p>
+        <h1 class="bt-name">倦缥</h1>
+        <p class="bt-sub">青柑 · QINGGAN</p>
         <span class="bt-rule"></span>
         <dl class="bt-meta">
-          <div><dt>身份</dt><dd>18 / 双 · ENFP</dd></div>
+          <div><dt>身份</dt><dd>18 · 双 · ENFP</dd></div>
           <div><dt>主风格</dt><dd>日常 · 高恋</dd></div>
           <div><dt>副风格</dt><dd>微擦 · 调情</dd></div>
         </dl>
       </div>
 
-      <div class="scroll-cue reveal"><i></i>向下 · 今晚的酒单</div>
+      <div class="scroll-cue reveal"><i></i><span>向下 · 今晚的酒单</span></div>
     </header>
 
     <!-- 01 酒单 -->
@@ -1697,6 +1696,7 @@ function pour(){
   const dateStr = `${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}`;
   const timeStr = `${pad(now.getHours())}:${pad(now.getMinutes())}`;
   const no = `QG-${dateStr}-${pad(1 + Math.floor(Math.random()*24))}${pad(1 + Math.floor(Math.random()*60))}`;
+  const song = curTrack >= 0 ? `${TRACKS[curTrack].t} · ${TRACKS[curTrack].d}` : '还没点歌';
 
   const raw = {苦:0,甜:0,烈:0,柔:0,幻:0};
   state.items.forEach(it=> AXES.forEach(a=> raw[a] += it.sc[a]));
@@ -1730,6 +1730,7 @@ function pour(){
         <div><span>单号</span><span>${no}</span></div>
         <div><span>桌号</span><span>靠窗 · 一位</span></div>
         <div><span>时间</span><span>${dateStr.slice(0,4)}.${dateStr.slice(4,6)}.${dateStr.slice(6)} ${timeStr}</span></div>
+        <div><span>点歌</span><span>${song}</span></div>
       </div>
       <div class="r-hr dash"></div>
       <div class="r-cols"><span>品名 / ITEM</span><span>剂量</span><span>金额</span></div>
@@ -1767,7 +1768,7 @@ function pour(){
   </div>
   <p class="tap-hint">点一下小票，会有人说话。</p>`;
 
-  state.receipt = {vals, dom, no, total, subtotal, service, abv, verdict, timeStr, dateStr};
+  state.receipt = {vals, dom, no, total, subtotal, service, abv, verdict, timeStr, dateStr, song};
   $('receiptStage').innerHTML = html;
   $('receiptStage').classList.add('in');
 
@@ -1873,6 +1874,7 @@ function drawReceiptCanvas(){
   row('单号', R.no, 18, SOFT);
   row('桌号', '靠窗 · 一位', 18, SOFT);
   row('时间', R.dateStr.slice(0,4) + '.' + R.dateStr.slice(4,6) + '.' + R.dateStr.slice(6) + ' ' + R.timeStr, 18, SOFT);
+  row('点歌', R.song || '还没点歌', 18, SOFT);
 
   dashHr(10, 26);
 
